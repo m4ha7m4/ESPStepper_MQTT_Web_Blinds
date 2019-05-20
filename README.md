@@ -34,11 +34,11 @@ Also uploaded my STL files for 4mm sqaure adapter (with option of 45 offset on s
       - Added url for specific position: http://YOUR_IP/input?position=VALUE  
       - Removed dad's sun position and ambient light sensor code (sorry!)
    
- #To Do: 
-      - Prevent strings causing input of 0 and closing blinds when using URL and webpage form position
-      - Refresh slider with button and form control. Does not work because webpage refreshes before movement begins.  Would need to enable ajax refresh of slider only or delay refresh for 3-5 seconds to allow motor to complete movement
-      - Change driver library
-      - Add SmartThings/Hubduino integration via ST_Anything or SmartLife
+### To Do: 
+     - Prevent strings causing input of 0 and closing blinds when using URL and webpage form position
+     - Refresh slider with button and form control. Does not work because webpage refreshes before movement begins.  Would need to enable ajax refresh of slider only or delay refresh for 3-5 seconds to allow motor to complete movement
+     - Change driver library to play with microstepping
+     - Add SmartThings/Hubduino integration via ST_Anything or SmartLife
   
 
  
