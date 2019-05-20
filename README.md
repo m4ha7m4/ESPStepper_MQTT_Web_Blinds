@@ -3,7 +3,7 @@ Modified code to function on my ESP32 DOIT Devkit V1 clone and added a webserver
 
 Also uploaded my STL files for 4mm sqaure adapter (with option of 45 offset on square side), 6mm Hex adapter (original hex was asymmetrical) and motor mount to fit my blinds with an offset rod from Home Depot
 
-https://raw.githubusercontent.com/m4ha7m4/ESPStepper_MQTT_Web_Blinds/master/WebPageExample.PNG
+(https://raw.githubusercontent.com/m4ha7m4/ESPStepper_MQTT_Web_Blinds/master/WebPageExample.PNG)
 
 
 ### m4ha7m4 and father implementation of  Blind Controller based  on thehookup's ESP8266 project!
