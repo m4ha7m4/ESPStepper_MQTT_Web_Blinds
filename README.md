@@ -1,3 +1,48 @@
+Modified code to function on my ESP32 DOIT Devkit V1 clone and added a webserver with HTTP url based commands.
+
+
+Also uploaded my STL files for 4mm sqaure adapter (with option of 45 offset on square side), 6mm Hex adapter (original hex was asymmetrical) and motor mount to fit my blinds with an offset rod from Home Depot
+
+
+
+/* m4ha7m4 and father implementation of  Blind Controller based  on
+ *  thehookup - Motorize and Automate your Blinds for $10! (WiFi)
+ *  https://www.youtube.com/watch?v=1O_1gUFumQM  
+ *  https://github.com/thehookup/Motorized_MQTT_Blinds
+ *  V 1.0
+ *    - added analog light sensor and tilt based on light level (assumed max of 1024) - NOW REMOVED
+ *  v 1.1
+ *    - Added Webserver and web 
+ *  v 1.2
+ *    - added solar postion based on 
+ *        2017 Ken Willmott https://github.com/KenWillmott/SolarPosition
+ *        Arduino library based on the program "Arduino Uno and Solar Position Calculations"
+ *  v 1.3
+ *  
+ *    - added position slider on web page https://randomnerdtutorials.com/esp32-servo-motor-web-server-arduino-ide/
+ *    - added button and mqtt for turning amb light sensor control on/off. Useful for if room empty etc.
+ *  v 1.5
+ *    - adpated for ESP32 from NODEMCU
+ *    - replaced webserver library
+ *  v 2.0 
+ *    - Modified for CP to allow for full range of motion
+ *    - Defined "STEPS_TO_OPEN" for open position and to use STEPS_TO_CLOSE for FULL range of blinds motion and updated all code
+ *    - Added web handles so "http://YOUR_IP/close" sets  position to 0, "/open" sets to STEPS_TO_OPEN and "/closedown" sets to STEPS_TO_CLOSE
+ *    - Cleaned up for GITHUB
+ *    - Added url for specific position: http://YOUR_IP/input?position=VALUE  
+ *    - Removed dad's sun position and ambient light sensor code (sorry!)
+ *   
+ *   To Do: 
+ *    - Prevent strings causing input of 0 and closing blinds when using URL and webpage form position
+ *    - Refresh slider with button and form control. Does not work because webpage refreshes before movement begins.
+ *      Would need to enable ajax refresh of slider only or delay refresh for 3-5 seconds to allow motor to complete movement
+ *    - Change driver library
+ *    - Add SmartThings/Hubduino integration via ST_Anything or SmartLife
+ *  
+ */
+ 
+ORIGINAL PROJECT BELOW:
+https://github.com/thehookup/Motorized_MQTT_Blinds
 # Motorized_MQTT_Blinds
 
 
@@ -16,44 +61,3 @@ NodeMCU: https://amzn.to/2I89xDF
 
 Buck Converter: https://amzn.to/2UsQ7jA
 
-## 3D Printing
-
-Download the correct STL file for your style of tilt rod
-
-## Wiring Schematic
-
-![alt text](https://github.com/thehookup/Motorized_MQTT_Blinds/blob/master/Schematic.jpg?raw=true)
-
-## File setup
-
-Fill out the entire USER CONFIGURATION section of the code.
-
-You should leave "STEPS_TO_CLOSE" at 12 to start with.  It can be adjusted for your specific blinds
-
-## Home Assistant YAML
-
-Replace "BlindsMCU" with your MQTT_CLIENT_ID if you changed it in the file setup
-
-```yaml
-cover:
-  - platform: mqtt
-    name: "Motorized Blinds"
-    command_topic: "BlindsMCU/blindsCommand"
-    set_position_topic: "BlindsMCU/positionCommand"
-    position_topic: "BlindsMCU/positionState"
-    state_topic: "BlindsMCU/positionState"
-    retain: true
-    payload_open: "OPEN"
-    payload_close: "CLOSE"
-    payload_stop: "STOP"
-    position_open: 0
-    position_closed: 12
-  ```
-  
-## Recommended Tools
-
-Ender3 3d Printer: https://amzn.to/2GcznnZ
-
-Dupont Crimper and Connector Set: https://amzn.to/2X1Oeap
-
-## Alexa only support (no hub required) coming soon
