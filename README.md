@@ -1,5 +1,5 @@
 Modified code to function on my ESP32 DOIT Devkit V1 clone and added a webserver with HTTP url based commands.
-
+Download ALL 3 SKETCHES in the ESPStepper_MQTT_Web_Blinds folder
 
 Also uploaded my STL files for 4mm sqaure adapter (with option of 45 offset on square side), 6mm Hex adapter (original hex was asymmetrical) and motor mount to fit my blinds with an offset rod from Home Depot
 
@@ -40,6 +40,7 @@ Also uploaded my STL files for 4mm sqaure adapter (with option of 45 offset on s
      - Refresh slider with button and form control. Does not work because webpage refreshes before movement begins.  Would need to enable ajax refresh of slider only or delay refresh for 3-5 seconds to allow motor to complete movement
      - Change driver library to play with microstepping
      - Add SmartThings/Hubduino integration via ST_Anything or SmartLife
+     - Consolidate 3 files into one sketch
   
 
  
